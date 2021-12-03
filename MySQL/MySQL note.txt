@@ -1,0 +1,120 @@
+Query MySQL:
+
+create database nama_databasenya;
+
+show databases;
+
+use nama_databasenya;
+
+CREATE TABLE nama_tabel (
+    kolom1 tipedata,
+    kolom2 tipedata,
+    kolom3 tipedata,
+   ….
+);
+
+DESCRIBE nama_tabel;
+
+INSERT INTO table_name (kolom1, kolom2, kolom3, …)
+VALUES (value1, value2, value3, …);
+
+SELECT * FROM nama_tabel;
+
+SELECT kolom1, kolom2, …
+FROM table_name;
+
+SELECT *
+FROM nama_tabel
+WHERE condition;
+
+UPDATE nama_table
+SET kolom1 = value1, kolom2 = value2, …
+WHERE condition;
+
+DELETE FROM nama_table WHERE condition;
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+select table1.orderNumber, table1.orderDate, table2.customerName
+from table1
+inner join table2 on table1.customerNumber = table2.customerNumber
+where table2.country in ("Spain", "USA")
+;
+
+SELECT a.orderNumber, a.orderDate, b.customerName, b.city, b.country, c.quantityOrdered, d.productName
+FROM orders a
+INNER JOIN customers b on a.customerNumber = b.customerNumber
+INNER JOIN orderdetails c on a.orderNumber = c.orderNumber
+INNER JOIN products d on c.productCode = d.productCode
+WHERE 
+	d.productName in ("1992 Ferrari 360 Spider red") and
+	a.orderDate between ("2004-08-01") and ("2004-12-01")
+;
+
+to prevent duplicate data, use distinct(columnName):
+select distinct(city) from station where id%2 = 0;
+
+to count the number of data/row, use count(columnName):
+select count(city) from station;
+
+to order by columnName, use order by columnName1, columnName2 ASC/DESC:
+SELECT * FROM Customers ORDER BY Country ASC;
+SELECT CITY
+FROM STATION
+ORDER BY LENGTH(CITY) DESC, CITY
+LIMIT 1;
+
+select row started by a particular alphabet, use like:
+SELECT CITY 
+FROM STATION 
+WHERE 
+    CITY LIKE 'A%'
+    OR CITY LIKE 'I%'
+    OR CITY LIKE 'U%'
+    OR CITY LIKE 'E%'
+    OR CITY LIKE 'O%';
+
+to count number of rows in a column:
+SELECT COUNT(POPULATION)
+FROM CITY;
+
+to sum all values in a column:
+SELECT SUM(POPULATION)
+FROM CITY;
+
+to average all values in a column:
+SELECT AVG(POPULATION)
+FROM CITY;
+
+to round to nearest lower integer:
+SELECT ROUND(AVG(POPULATION))
+FROM CITY;
+
+to find max and min value in a column, use max(columnName) and min(columnName) :
+SELECT MAX(POPULATION) - MIN(POPULATION)
+FROM CITY;
+
+to replace the value of a data, use replace:
+SELECT AVG(REPLACE(Salary,'0',''))
+FROM EMPLOYEES;
+
+to select a particuar char, use left(columnName,n):
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE RIGHT(CITY, 1) IN ('a', 'e', 'i', 'o', 'u');
+
+GROUP BY untuk menggrup row berdasarkan type column yg sama:
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+
+inserting NULL value:
+SELECT IF(GRADE < 8, NULL, NAME), GRADE, MARKS
