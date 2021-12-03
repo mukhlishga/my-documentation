@@ -1,0 +1,54 @@
+1. pindah ke folder tempat projek akan dibuat
+cd C:\Users\ASUS\Desktop\Sanbercode\NodeJS Backend Development with Adonis\Tugas\im-sanbercode-nodejs-adonis-backend\Tugas 11 - REST API Express
+
+2. Buat express generator
+npx express-generator tugas-11 --no-view
+tugas-11= nama projek kita
+
+3. masuk ke folder blog
+cd tugas-11
+
+4. buat npm
+npm install
+
+5. start server express js
+SET DEBUG=tugas-11:* & npm start
+
+6. agar watch perintah run
+pada package.json:
+"scripts": {
+    "start": "npx nodemon ./bin/www"
+  },
+
+7. run
+npm start
+
+8. add .gitignore isinya npm_modules
+
+9. add controllers folder dan controller.js
+
+10. add data.json
+
+ORM sequelize
+
+1. pada projek yg sudah ready terkandung express generator:
+npm install --save sequelize mysql2
+
+2. install cli untuk operasi
+npm install --save-dev sequelize-cli
+
+3. projek bootstrapping
+npx sequelize-cli init
+
+4. membuat model/table
+npx sequelize-cli db:create
+akan membuat sebuah database bernama nama projek kita di php myadmin (mysql xampp)
+
+5. membuat tabel pada database
+npx sequelize-cli model:generate --name Venue --attributes name:string,address:string,phone:string
+Akan ada file model (tabel) dan migration (version control) baru di projek
+Venue akan menjadi Venues secara otomatis
+akan ada attribute id secara otomatis
+
+6. migrate ke mysql
+npx sequelize-cli db:migrate

@@ -1,0 +1,19 @@
+1. pindah ke folder tempat projek akan dibuat
+cd C:\xampp\htdocs
+
+2. Buat projek baru
+composer create-project --prefer-dist laravel/laravel blog "6.*"
+blog = nama projek kita
+
+3. masuk ke folder blog
+cd blog
+
+4. Start server lokal
+php artisan serve
+akan ada server lokal dengan alamat: http://localhost:8000
+
+5. membuat controller
+php artisan make:controller NamaController
+
+6. setelah membuat watch di package.json: "start": "npx nodemon ./bin/www"
+npm start

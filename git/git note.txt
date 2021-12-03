@@ -1,0 +1,110 @@
+membuat folder:
+klik kanan gitbash di desktop
+mkdir namafolder
+masuk ke sebuah folder:
+cd urlFolder
+balik ke atas:
+cd ..
+
+membuat project terversioned oleh git:
+di cmd masuk ke directory kerja, atau klik kanan git bash di folder project
+git init
+
+lihat status head:
+git status
+
+menambah file yg belum ada di stage:
+git add namaFile atau git add .
+
+mengconfirm perubahan ke stage
+git commit -m "message"
+
+mengupdate isi repo:
+git push
+
+bikin branch baru:
+git branch namabranch
+git checkout namabranch
+
+jika file yg diubah sudah ada di repo:
+git commit -am "message"
+
+melihat graph commit:
+git log --all --decorate --oneline --graph
+
+configurasi informasi git
+git config --global user.name namauser
+git config --global user.email namaemail
+
+merge cabang commit tanpa conflict:
+git merge namabranch
+
+merge cabang yang berconflict:
+git merge namabranch
+ada confict --> resolve conflict di visualstudiocode
+git add .
+git commit -m "message"
+git commit
+
+menghapus branch yg sudah selesai dimerge:
+git branch -d namabranch
+
+fork --> jika seseorang ingin menduplikat repo punya orang lain
+dari 1 remote (github) ke remote (github) lain
+
+clone project dari github ke local pc:
+buat repo baru di github
+centang initialize with readme
+klik clone with https, copy
+pilih folder tempat project repo mau diclone
+klik kanan git bash
+git clone httpsgithubrepo
+cd namarepogithub
+git remote -v --> ada "origin" sebagai nama remote repo github
+tinggal edit data project
+git add .
+git commit -m "message"git remote -v
+git push -u origin master/main
+git clone
+clone project dari local pc ke github:
+buat folder project, masuk lewat cmd/gitbash
+git init
+tinggal edit data project
+git add .
+git commit -m "message"
+bikin repo di github, tanpa mencentang add readme
+copy code github di kolom "or push an existing repository from the command line"
+paste di cmd/gitbash:
+git remote add origin httpsgithubrepo
+git push -u origin master/main
+
+kasus di atas, tapi ada conflict antara remote (github) dan local (pc):
+git fetch --> lihat history commit branch di repo github, cek apakah ada conflict yg mana
+git pull --> ambil commit terbaru dari remote repo github
+nanti ada merge conflict, resolve di visualstudiocode
+git add .
+git commit -m "message"
+git push -u origin master/main
+
+membuka visualstudiocode pada folder:
+di gitbash, masuk ke direktori project, ketik: code .
+
+memakai gitignore:
+buat file .gitignore, isi dengan nama file.extension yg ingin diignore pada project
+yg bisa diignore:
+data/ --> folder data diignore
+*.exe --> semua file .exe diignore
+https://github.com/github/gitignore --> file2 yg biasa diignore
+
+branch rebase
+mengubah base aktif menjadi commit di percabangan agar bisa fast forward merge dg branch di depannya
+git checkout cabang1
+git rebase main --> rebase cabang1 ke main/master
+git checkout main
+git rebase cabang1
+
+pulling after something is changed in remote github:
+Because you pressed i to enter your text, I think that editor is vim. Assuming that you typed in your commit message ok, you have to do
+<esc> :w <enter>
+to write to the file and
+<esc> :q <enter>
