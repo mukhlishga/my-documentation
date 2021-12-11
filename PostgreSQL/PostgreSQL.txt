@@ -1,0 +1,8 @@
+command:
+
+masuk ke database:
+psql
+lalu masukkan user, password
+
+melihat tabel:
+\dt
