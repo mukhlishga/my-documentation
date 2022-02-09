@@ -65,7 +65,7 @@ tinggal edit data project
 git add .
 git commit -m "message"git remote -v
 git push -u origin master/main
-git clone
+
 clone project dari local pc ke github:
 buat folder project, masuk lewat cmd/gitbash
 git init
